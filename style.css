@@ -1,0 +1,143 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1c1c1e;
+  color: #f2f2f2;
+  padding: 40px 20px;
+}
+
+/* ===== APP CONTAINER ===== */
+#app {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #2c2c2e;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+/* ===== FORM GROUPS ===== */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #f2f2f2;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #3a3a3c;
+  border: 1px solid #555;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #f2f2f2;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #e63946;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ===== CHARACTER COUNT ===== */
+.char-count {
+  display: block;
+  font-size: 0.78rem;
+  color: #aaaaaa;
+  margin-top: 4px;
+}
+
+/* ===== VALIDATION MESSAGES ===== */
+.validation-msg {
+  display: block;
+  font-size: 0.82rem;
+  color: #e63946;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+#submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #e63946;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#submit-btn:hover {
+  background-color: #c1121f;
+}
+
+/* ===== TOOLTIP ===== */
+#tooltip {
+  position: fixed;
+  background-color: #e63946;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  pointer-events: none;
+  display: none;
+  z-index: 999;
+}
+
+/* ===== FEEDBACK DISPLAY ===== */
+#feedback-display {
+  margin-top: 32px;
+}
+
+#feedback-display h2 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.feedback-card {
+  background-color: #3a3a3c;
+  border-left: 4px solid #e63946;
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.feedback-card p {
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+  color: #f2f2f2;
+}
+
+.feedback-card p:last-child {
+  margin-bottom: 0;
+}
