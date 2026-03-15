@@ -1,4 +1,4 @@
-// ===== STEP 1: SELECT ALL ELEMENTS WE NEED =====
+// ===== SELECT ALL ELEMENTS WE NEED =====
 const nameInput = document.getElementById("name");
 const emailInput = document.getElementById("email");
 const commentsInput = document.getElementById("comments");
@@ -7,15 +7,13 @@ const nameCount = document.getElementById("name-count");
 const emailCount = document.getElementById("email-count");
 const commentsCount = document.getElementById("comments-count");
 
-
-// ===== STEP 2: CHARACTER COUNT FUNCTION =====
+// ===== CHARACTER COUNT FUNCTION =====
 function updateCharCount(inputElement, countElement) {
   const length = inputElement.value.length;
   countElement.textContent = `${length} characters`;
 }
 
-
-// ===== STEP 3: ATTACH INPUT EVENT LISTENERS =====
+// ===== ATTACH INPUT EVENT LISTENERS =====
 nameInput.addEventListener("input", function() {
   updateCharCount(nameInput, nameCount);
 });
@@ -87,7 +85,6 @@ function validateForm() {
   return isValid;
 }
 
-
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -101,7 +98,6 @@ form.addEventListener("submit", function(event) {
     commentsCount.textContent = "0 characters";
   }
 });
-
 
 function appendFeedback() {
   const feedbackDisplay = document.getElementById("feedback-display");
@@ -129,3 +125,27 @@ function appendFeedback() {
   card.appendChild(commentsPara);
   feedbackDisplay.appendChild(card);
 }
+
+// ===== EVENT DELEGATION =====
+form.addEventListener("input", function(event) {
+  if (event.target.matches("#name")) {
+    updateCharCount(nameInput, nameCount);
+  } else if (event.target.matches("#email")) {
+    updateCharCount(emailInput, emailCount);
+  } else if (event.target.matches("#comments")) {
+    updateCharCount(commentsInput, commentsCount);
+  }
+});
+
+// ===== STOP PROPAGATION ON FORM =====
+form.addEventListener("click", function(event) {
+  event.stopPropagation();
+});
+
+
+// ===== BACKGROUND CLICK =====
+document.body.addEventListener("click", function() {
+  nameError.textContent = "";
+  emailError.textContent = "";
+  commentsError.textContent = "";
+});
