@@ -52,3 +52,80 @@ formGroups.forEach(function(group) {
   });
 
 });
+
+// ===== VALIDATION & SUBMISSION =====
+const form = document.getElementById("feedback-form");
+
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
+const commentsError = document.getElementById("comments-error");
+
+function validateForm() {
+  let isValid = true;
+
+  if (nameInput.value.trim() === "") {
+    nameError.textContent = "Name is required.";
+    isValid = false;
+  } else {
+    nameError.textContent = "";
+  }
+
+  if (emailInput.value.trim() === "") {
+    emailError.textContent = "Email is required.";
+    isValid = false;
+  } else {
+    emailError.textContent = "";
+  }
+
+  if (commentsInput.value.trim() === "") {
+    commentsError.textContent = "Comments are required.";
+    isValid = false;
+  } else {
+    commentsError.textContent = "";
+  }
+
+  return isValid;
+}
+
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const isValid = validateForm();
+
+  if (isValid) {
+    appendFeedback();
+    form.reset();
+    nameCount.textContent = "0 characters";
+    emailCount.textContent = "0 characters";
+    commentsCount.textContent = "0 characters";
+  }
+});
+
+
+function appendFeedback() {
+  const feedbackDisplay = document.getElementById("feedback-display");
+
+  if (feedbackDisplay.children.length === 0) {
+    const heading = document.createElement("h2");
+    heading.textContent = "Submitted Feedback";
+    feedbackDisplay.appendChild(heading);
+  }
+
+  const card = document.createElement("div");
+  card.className = "feedback-card";
+
+  const namePara = document.createElement("p");
+  namePara.textContent = `Name: ${nameInput.value}`;
+
+  const emailPara = document.createElement("p");
+  emailPara.textContent = `Email: ${emailInput.value}`;
+
+  const commentsPara = document.createElement("p");
+  commentsPara.textContent = `Comments: ${commentsInput.value}`;
+
+  card.appendChild(namePara);
+  card.appendChild(emailPara);
+  card.appendChild(commentsPara);
+  feedbackDisplay.appendChild(card);
+}
