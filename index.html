@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feebcak Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="app">
+        <h1>User Feedback</h1>
+        <form id="feedback-form" novalidate>
+
+            <!-- Name Field -->
+            <div class="form-group" data-tooltip="Enter your full name.">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Your full name" required/>
+                <small class="char-count" id="name-count">0 characters</small>
+                <span class="validation-msg" id="name-error"></span>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group" data-tooltip="Enter a valid email address.">
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Your email address" required/>
+                <small class="char-count" id="email-count">0 characters</small>
+                <span class="validation-msg" id="email-error"></span>
+            </div>
+
+            <!-- Comments Field -->
+            <div class="form-group" data-tooltip="Share your feedback with us.">
+                <label for="comments">Comment:</label>
+                <textarea id="comments" placeholder="Write your feedback here..." required></textarea>
+                <small class="char-count" id="comments-count">0 characters</small>
+                <span class="validation-msg" id="comments-error"></span>
+            </div>
+
+            <button type="submit" id="submit-btn">Submit Feedback</button>
+
+        </form>
+
+        <!-- Tooltip box (shared, moved by JS) -->
+        <div id="tooltip"></div>
+
+        <!-- Feedback entries will appear here -->
+        <div id="feedback-display"></div>
+        
+    </div>
+
+    <script src="cp_1.js"></script>
+</body>
+</html>
