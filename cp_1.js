@@ -27,3 +27,28 @@ emailInput.addEventListener("input", function() {
 commentsInput.addEventListener("input", function() {
   updateCharCount(commentsInput, commentsCount);
 });
+
+// ===== TOOLTIP =====
+const tooltip = document.getElementById("tooltip");
+const formGroups = document.querySelectorAll(".form-group");
+
+formGroups.forEach(function(group) {
+  
+  group.addEventListener("mouseover", function(event) {
+    const text = group.dataset.tooltip;
+    tooltip.textContent = text;
+    tooltip.style.display = "block";
+    event.stopPropagation();
+  });
+
+  group.addEventListener("mouseout", function(event) {
+    tooltip.style.display = "none";
+    event.stopPropagation();
+  });
+
+  group.addEventListener("mousemove", function(event) {
+    tooltip.style.top = `${event.clientY + 14}px`;
+    tooltip.style.left = `${event.clientX + 14}px`;
+  });
+
+});
